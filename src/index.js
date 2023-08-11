@@ -4,6 +4,8 @@ require('dotenv').config();
 
 console.clear();
 
+console.log(process.env.MONGODB_URI);
+
 // Express
 const express = require('express');
 const app = express();
