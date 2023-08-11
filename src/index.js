@@ -95,8 +95,8 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(process.env.SOCKET_PORT, () => {
-  console.log('Socket.io corriendo por el puerto', process.env.SOCKET_PORT);
+server.listen(process.env.PORT, () => {
+  console.log('Socket.io corriendo por el puerto', process.env.PORT);
 });
 
 // MongoDB database
