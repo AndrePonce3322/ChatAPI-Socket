@@ -2,7 +2,7 @@
 require('dotenv').config();
 
 const mongoose = require('mongoose');
-const connection = process.env.MONGODB_URI;
+const connection = "mongodb+srv://andre:andreponce123@chatrealtimedatabase.6czr7ud.mongodb.net/database?retryWrites=true&w=majority";
 
 // MongoDB connection
 mongoose

@@ -4,6 +4,8 @@ require('dotenv').config();
 
 console.clear();
 
+console.log(process.env.MONGODB_URI ?? 3000);
+
 // Express
 const express = require('express');
 const app = express();
@@ -95,8 +97,10 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(process.env.PORT, () => {
-  console.log('Socket.io corriendo por el puerto', process.env.PORT);
+const socketPORT = process.env.PORT ?? 3000;
+
+server.listen(socketPORT, () => {
+  console.log('Socket.io corriendo por el puerto', socketPORT);
 });
 
 // MongoDB database
@@ -154,6 +158,8 @@ app.get('/users', async (req, res) => {
   res.json(users);
 });
 
-app.listen(process.env.MONGO_PORT, () => {
-  console.log('database link', process.env.MONGO_PORT);
+const MongoPORT = process.env.MONGO_PORT ?? 32030;
+
+app.listen(MongoPORT, () => {
+  console.log('database link', MongoPORT);
 });
