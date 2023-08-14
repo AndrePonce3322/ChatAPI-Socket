@@ -20,6 +20,10 @@ const io = require('socket.io')(server);
 const MessageModel = require('./models/message_eschema');
 const userModel = require('./models/users_eschema');
 
+// PORTS
+const PORT = process.env.PORT || 3000;
+const MONGO_PORT = process.env.MONGO_PORT || 27017;
+
 io.on('connection', (socket) => {
   socket.on('message', (msg) => {
     io.emit('recibido', msg);
@@ -95,8 +99,8 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(process.env.PORT, () => {
-  console.log('Socket.io corriendo por el puerto', process.env.PORT);
+server.listen(PORT, () => {
+  console.log('Socket.io corriendo por el puerto', PORT);
 });
 
 // MongoDB database
@@ -154,6 +158,6 @@ app.get('/users', async (req, res) => {
   res.json(users);
 });
 
-app.listen(process.env.MONGO_PORT, () => {
-  console.log('database link', process.env.MONGO_PORT);
+app.listen(MONGO_PORT, () => {
+  console.log('database link', MONGO_PORT);
 });
