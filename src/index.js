@@ -35,7 +35,7 @@ io.on('connection', (socket) => {
         messageText: msgToJson.messageText,
         user: msgToJson._id,
         img: msgToJson.img,
-        createdAt: new Date().toLocaleString('es', { timeZoneName: 'short' }),
+        createdAt: new Date(),
       });
 
       // Save message and save on user _id
@@ -58,7 +58,7 @@ io.on('connection', (socket) => {
         messageText: msgToJson.messageText,
         user: msgToJson._id,
         video: msgToJson.video,
-        createdAt: new Date().toLocaleString('es', { timeZoneName: 'short' }),
+        createdAt: new Date(),
       });
 
       // Save message and save on user _id
@@ -75,7 +75,7 @@ io.on('connection', (socket) => {
     const SendMsg = new MessageModel({
       messageText: msgToJson.messageText,
       user: msgToJson._id,
-      createdAt: new Date().toLocaleString('es', { timeZoneName: 'short' }),
+      createdAt: new Date(),
     });
 
     // Save message and save on user _id
