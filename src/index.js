@@ -2,12 +2,11 @@
 'user-strict';
 require('dotenv').config();
 
-console.clear();
-
 // Express
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const fetch = require('node-fetch');
 
 const corsOptions = {
   origin: [
@@ -28,7 +27,6 @@ const io = require('socket.io')(server);
 // MongoDB Mesage Module
 const MessageModel = require('./models/message_eschema');
 const userModel = require('./models/users_eschema');
-const axios = require('axios');
 
 // PORTS
 const PORT = process.env.PORT || 3000;
@@ -182,7 +180,7 @@ app.listen(MONGO_PORT, () => {
   console.log('database link', MONGO_PORT);
 });
 
-// Función para hacer la petición a la URL cada 22 horas para que no se duerma
+// Función para hacer la petición a la URL cada 10 horas para que no se duerma
 const makeRequest = async () => {
   try {
     const response = await fetch(
@@ -194,6 +192,6 @@ const makeRequest = async () => {
     console.error(error);
   }
 };
-
+makeRequest();
 // 10 horas (36000000 milisegundos)
 setInterval(makeRequest, 36000000);

@@ -16,6 +16,7 @@
     "http": "0.0.1-security",
     "mongoose": "7.4.0",
     "mongoose-unique-validator": "4.0.0",
+    "node-fetch": "2.6.1",
     "nodemon": "3.0.1",
     "socket.io": "4.7.1"
   },
