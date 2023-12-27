@@ -192,6 +192,5 @@ const makeRequest = async () => {
     console.error(error);
   }
 };
-makeRequest();
 // 10 horas (36000000 milisegundos)
 setInterval(makeRequest, 36000000);
