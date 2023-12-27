@@ -185,10 +185,11 @@ app.listen(MONGO_PORT, () => {
 // Función para hacer la petición a la URL cada 22 horas para que no se duerma
 const makeRequest = async () => {
   try {
-    const response = await axios.get(
+    const response = await fetch(
       'https://chatapi-socket-dev-mgdp.2.us-1.fl0.io'
     );
-    console.log(response.data);
+    const data = await response.json();
+    console.log(data);
   } catch (error) {
     console.error(error);
   }
