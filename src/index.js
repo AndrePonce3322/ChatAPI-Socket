@@ -30,6 +30,16 @@ io.on('connection', (socket) => {
 
     const msgToJson = JSON.parse(msg);
 
+    if (
+      msgToJson._id === '' ||
+      msgToJson.user.img === '' ||
+      msgToJson.user.name === ''
+    ) {
+      return console.log(
+        'error, data are not complete, make sure you send _id, img and name'
+      );
+    }
+
     // Save image
     if (
       (msgToJson.img && msgToJson.messageText) ||
