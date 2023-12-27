@@ -10,7 +10,7 @@ const app = express();
 const cors = require('cors');
 
 const corsOptions = {
-  origin: ['https://ng-chatapp.vercel.app/', 'https://ngchatapp.netlify.app/'],
+  origin: ['https://chatwaveapp.netlify.app/'],
   optionsSuccessStatus: 200,
 };
 
