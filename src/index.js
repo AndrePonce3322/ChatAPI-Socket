@@ -8,7 +8,13 @@ console.clear();
 const express = require('express');
 const app = express();
 const cors = require('cors');
-app.use(cors());
+
+const corsOptions = {
+  origin: ['https://ng-chatapp.vercel.app', 'https://ngchatapp.netlify.app'],
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
