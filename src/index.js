@@ -8,15 +8,7 @@ const app = express();
 const cors = require('cors');
 const fetch = require('node-fetch');
 
-const corsOptions = {
-  origin: [
-    'https://chatwaveapp.netlify.app/',
-    'https://chatwaveapp.netlify.app',
-  ],
-  optionsSuccessStatus: 200,
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
