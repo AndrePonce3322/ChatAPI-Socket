@@ -28,6 +28,7 @@ const io = require('socket.io')(server);
 // MongoDB Mesage Module
 const MessageModel = require('./models/message_eschema');
 const userModel = require('./models/users_eschema');
+const axios = require('axios');
 
 // PORTS
 const PORT = process.env.PORT || 3000;
@@ -180,3 +181,18 @@ app.get('/users', async (req, res) => {
 app.listen(MONGO_PORT, () => {
   console.log('database link', MONGO_PORT);
 });
+
+// Función para hacer la petición a la URL cada 22 horas para que no se duerma
+const makeRequest = async () => {
+  try {
+    const response = await axios.get(
+      'https://chatapi-socket-dev-mgdp.2.us-1.fl0.io'
+    );
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// 10 horas (36000000 milisegundos)
+setInterval(makeRequest, 36000000);
